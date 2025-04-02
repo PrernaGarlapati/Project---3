@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hey, Welcome to My Page!</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+        color: #333333;
+      }
+      header {
+        text-align: center;
+        padding: 20px;
+      }
+      header h1 {
+        color: #2e8b57; /* Sea Green */
+        margin: 0;
+      }
+      nav {
+        text-align: center;
+        margin: 20px 0;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin: 0 15px;
+      }
+      nav ul li a {
+        color: #483d8b; /* Dark Slate Blue */
+        text-decoration: none;
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+      section {
+        margin: 20px 0;
+      }
+      section h2 {
+        color: #a52a2a; /* Brown */
+      }
+      article h3 {
+        color: #006400; /* Dark Green */
+        cursor: pointer; /* Indicates it's clickable */
+      }
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        border-top: 1px solid #555555;
+        color: #555555;
+      }
+      footer p {
+        margin: 5px 0;
+      }
+      #welcome-message {
+        display: none;
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+      button {
+        background-color: #2e8b57;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #25744b;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Hi There! This Is My Little Corner of the Web</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#home" class="nav-link">Home Sweet Home</a></li>
+        <li><a href="#about" class="nav-link">A Bit About Me</a></li>
+        <li><a href="#contact" class="nav-link">Say Hello!</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="about">
+        <h2>What's This Place All About?</h2>
+        <button id="toggle-message">Show a Welcome Note!</button>
+        <p id="welcome-message">
+          Hey, you're awesome for visiting! Stick around and check out my little
+          story below!
+        </p>
+        <p>
+          Hey, thanks for stopping by! This is just a simple webpage I put
+          together to share a little about myself. Think of it like a cozy
+          coffee shop chat, but online.
+        </p>
+        <p>Here's what you'll find here:</p>
+        <ul>
+          <li>A warm welcome (that's this part!)</li>
+          <li>Some fun facts about me</li>
+          <li>A way to get in touch if you want to chat</li>
+        </ul>
+      </section>
+
+      <section id="content">
+        <h2>A Little Story for You</h2>
+        <article>
+          <h3 id="article-heading">My Latest Adventure</h3>
+          <p>
+            So, the other day, I decided to try baking bread for the first time.
+            Let's just say it was... an experience! The kitchen smelled amazing,
+            but my loaf looked more like a pancake.
+          </p>
+          <p>
+            I learned a few things, though, and I'm ready to try again. Maybe
+            next time I'll even share some pics of a proper loaf!
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <p>Want to swap stories? Drop me a line at: friend@example.com</p>
+      <p>Made with ☕ and a smile in 2025</p>
+    </footer>
+
+    <script>
+      // Toggle welcome message
+      const toggleButton = document.getElementById("toggle-message");
+      const welcomeMessage = document.getElementById("welcome-message");
+      toggleButton.addEventListener("click", () => {
+        if (
+          welcomeMessage.style.display === "none" ||
+          welcomeMessage.style.display === ""
+        ) {
+          welcomeMessage.style.display = "block";
+          toggleButton.textContent = "Hide the Welcome Note!";
+        } else {
+          welcomeMessage.style.display = "none";
+          toggleButton.textContent = "Show a Welcome Note!";
+        }
+      });
+
+      // Change article heading color on click
+      const articleHeading = document.getElementById("article-heading");
+      articleHeading.addEventListener("click", () => {
+        const colors = ["#006400", "#FF4500", "#1E90FF"]; // Dark Green, Orange Red, Dodger Blue
+        const currentColor = articleHeading.style.color || "#006400";
+        const currentIndex = colors.indexOf(currentColor);
+        const nextIndex = (currentIndex + 1) % colors.length;
+        articleHeading.style.color = colors[nextIndex];
+      });
+
+      // Alert on nav link click
+      const navLinks = document.querySelectorAll(".nav-link");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault(); // Prevent default anchor behavior for demo
+          alert(`You're heading to ${link.textContent}! Stay tuned for more!`);
+        });
+      });
+    </script>
+  </body>
+</html>
